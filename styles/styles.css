@@ -216,4 +216,21 @@ footer {
   width: 180px;
   border-radius: 5px;
   display: none;
+  color: #464b44;
+  border: solid 2px #464b44;
+}
+
+#listaCarritoItem {
+  background-color: rgb(208, 224, 195);
+  border-bottom: 0.5px solid #464b44;
+  height: 30px;
+  margin: 0px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#listaCarritoItem > li {
+  list-style-type: none;
+  font-family: "Dosis", sans-serif;
+  font-size: 14px;
 }/*# sourceMappingURL=styles.css.map */

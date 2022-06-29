@@ -1,12 +1,12 @@
 const cartaMateras = document.querySelector('#divMateras');
 
 const stockMateras = [
-    { id: 1, tipo: 'materas', nombre: 'materasA', precio: 1000, },
-    { id: 2, tipo: 'materas', nombre: 'materasB', precio: 2000, },
-    { id: 3, tipo: 'materas', nombre: 'materasC', precio: 1200, },
-    { id: 4, tipo: 'materas', nombre: 'materasD', precio: 1100, },
-    { id: 5, tipo: 'materas', nombre: 'materasE', precio: 2400, },
-    { id: 6, tipo: 'materas', nombre: 'materasF', precio: 2100, }
+    { id: 1, tipo: 'materas', nombre: 'materasA', precio: 1000, cantidad: 0, },
+    { id: 2, tipo: 'materas', nombre: 'materasB', precio: 2000, cantidad: 0, },
+    { id: 3, tipo: 'materas', nombre: 'materasC', precio: 1200, cantidad: 0, },
+    { id: 4, tipo: 'materas', nombre: 'materasD', precio: 1100, cantidad: 0, },
+    { id: 5, tipo: 'materas', nombre: 'materasE', precio: 2400, cantidad: 0, },
+    { id: 6, tipo: 'materas', nombre: 'materasF', precio: 2100, cantidad: 0, }
 ]
 
 stockMateras.forEach((item) => {
@@ -23,6 +23,15 @@ stockMateras.forEach((item) => {
 
 const agregarAlCarritoMateras = (id) => {
     const item = stockMateras.find((producto) => producto.id === id)
-    arrayCarrito.push(item);
-    console.log(arrayCarrito);
+    item.cantidad = item.cantidad + 1
+    item.precio = item.precio * item.cantidad;
+
+    if (item.cantidad === 1) {
+        arrayCarrito.push(item);
+    } else {
+        const productoRepetido = arrayCarrito.find((item) => item.cantidad > 1);
+        const indiceRepetido = arrayCarrito.indexOf(productoRepetido);
+        arrayCarrito[indiceRepetido] = productoRepetido;
+    }
+    dibujarCarrito();
 }

@@ -1,12 +1,12 @@
 const cartaCajas = document.querySelector('#divCajas');
 
 const stockCajas = [
-    { id: 1, tipo: 'cajas', nombre: 'cajaA', precio: 1000, },
-    { id: 2, tipo: 'cajas', nombre: 'cajaB', precio: 2000, },
-    { id: 3, tipo: 'cajas', nombre: 'cajaC', precio: 1200, },
-    { id: 4, tipo: 'cajas', nombre: 'cajaD', precio: 1100, },
-    { id: 5, tipo: 'cajas', nombre: 'cajaE', precio: 2400, },
-    { id: 6, tipo: 'cajas', nombre: 'cajaF', precio: 2100, }
+    { id: 1, tipo: 'cajas', nombre: 'cajaA', precio: 1000, cantidad: 0, },
+    { id: 2, tipo: 'cajas', nombre: 'cajaB', precio: 2000, cantidad: 0, },
+    { id: 3, tipo: 'cajas', nombre: 'cajaC', precio: 1200, cantidad: 0, },
+    { id: 4, tipo: 'cajas', nombre: 'cajaD', precio: 1100, cantidad: 0, },
+    { id: 5, tipo: 'cajas', nombre: 'cajaE', precio: 2400, cantidad: 0, },
+    { id: 6, tipo: 'cajas', nombre: 'cajaF', precio: 2100, cantidad: 0, }
 ]
 
 stockCajas.forEach((item) => {
@@ -23,6 +23,15 @@ stockCajas.forEach((item) => {
 
 const agregarAlCarritoCajas = (id) => {
     const item = stockCajas.find((producto) => producto.id === id)
-    arrayCarrito.push(item);
-    console.log(arrayCarrito);
+    item.cantidad = item.cantidad + 1
+    item.precio = item.precio * item.cantidad;
+
+    if (item.cantidad === 1) {
+        arrayCarrito.push(item);
+    } else {
+        const productoRepetido = arrayCarrito.find((item) => item.cantidad > 1);
+        const indiceRepetido = arrayCarrito.indexOf(productoRepetido);
+        arrayCarrito[indiceRepetido] = productoRepetido;
+    }
+    dibujarCarrito();
 }

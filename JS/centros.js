@@ -1,12 +1,12 @@
 const cartaCentros = document.querySelector('#divCentros');
 
 const stockCentros = [
-    { id: 1, tipo: 'centros', nombre: 'centroA', precio: 1000, },
-    { id: 2, tipo: 'centros', nombre: 'centroB', precio: 2000, },
-    { id: 3, tipo: 'centros', nombre: 'centroC', precio: 1200, },
-    { id: 4, tipo: 'centros', nombre: 'centroD', precio: 1100, },
-    { id: 5, tipo: 'centros', nombre: 'centroE', precio: 2400, },
-    { id: 6, tipo: 'centros', nombre: 'centroF', precio: 2100, }
+    { id: 1, tipo: 'centros', nombre: 'centroA', precio: 1000, cantidad: 0, },
+    { id: 2, tipo: 'centros', nombre: 'centroB', precio: 2000, cantidad: 0, },
+    { id: 3, tipo: 'centros', nombre: 'centroC', precio: 1200, cantidad: 0, },
+    { id: 4, tipo: 'centros', nombre: 'centroD', precio: 1100, cantidad: 0, },
+    { id: 5, tipo: 'centros', nombre: 'centroE', precio: 2400, cantidad: 0, },
+    { id: 6, tipo: 'centros', nombre: 'centroF', precio: 2100, cantidad: 0, }
 ]
 
 stockCentros.forEach((item) => {
@@ -23,6 +23,15 @@ stockCentros.forEach((item) => {
 
 const agregarAlCarritoCentros = (id) => {
     const item = stockCentros.find((producto) => producto.id === id)
-    arrayCarrito.push(item);
-    console.log(arrayCarrito);
+    item.cantidad = item.cantidad + 1
+    item.precio = item.precio * item.cantidad;
+
+    if (item.cantidad === 1) {
+        arrayCarrito.push(item);
+    } else {
+        const productoRepetido = arrayCarrito.find((item) => item.cantidad > 1);
+        const indiceRepetido = arrayCarrito.indexOf(productoRepetido);
+        arrayCarrito[indiceRepetido] = productoRepetido;
+    }
+    dibujarCarrito();
 }

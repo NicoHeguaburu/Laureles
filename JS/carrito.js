@@ -12,3 +12,19 @@ contenedorCarrito.addEventListener("mouseover", () => {
 contenedorCarrito.addEventListener("mouseleave", () => {
     cuerpoCarrito.style.display = "none";
 });
+
+cuerpoCarrito.innerHTML = `<h6 class="d-flex justify-content-center mt-3">Carrito vacío</h6>`
+
+function dibujarCarrito() {
+    cuerpoCarrito.innerHTML = ""
+    arrayCarrito.forEach(item => {
+        const divCarritoItem = document.createElement('div');
+        divCarritoItem.innerHTML =
+            `<ul class="d-flex flex-row" id="listaCarritoItem"><li>${item.nombre}</li><li>${item.precio}  </li><li>${item.cantidad}</li></ul>`
+        cuerpoCarrito.append(divCarritoItem);
+    });
+
+    const divTotal = document.createElement('div');
+    divTotal.innerHTML = `<h6>TOTAL:</h6>`
+    cuerpoCarrito.append(divTotal);
+}
