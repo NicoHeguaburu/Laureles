@@ -1,4 +1,4 @@
-arrayCarrito = [];
+let arrayCarrito = [];
 
 
 const botonCarrito = document.querySelector('#botonCarrito');
@@ -13,10 +13,10 @@ contenedorCarrito.addEventListener("mouseleave", () => {
     cuerpoCarrito.style.display = "none";
 });
 
-cuerpoCarrito.innerHTML = `<h6 class="d-flex justify-content-center mt-3">Carrito vacío</h6>`
+cuerpoCarrito.innerHTML = `<h6 class="d-flex justify-content-center mt-3">Carrito vacío</h6>`;
 
 function dibujarCarrito() {
-    cuerpoCarrito.innerHTML = ""
+    cuerpoCarrito.innerHTML = "";
     arrayCarrito.forEach(item => {
         const divCarritoItem = document.createElement('div');
         divCarritoItem.innerHTML =
@@ -28,6 +28,11 @@ function dibujarCarrito() {
         precioTotal = item.precio + precioTotal;
     });
     const divTotal = document.createElement('div');
-    divTotal.innerHTML = `<h6 class="d-flex justify-content-center">TOTAL: ${precioTotal}</h6>`
+    divTotal.innerHTML = `<h6 class="d-flex justify-content-center">TOTAL: ${precioTotal}</h6><button onclick="vaciarCarrito()">vaciar carro</button>`
     cuerpoCarrito.append(divTotal);
+}
+
+function vaciarCarrito() {
+    arrayCarrito = [];
+    cuerpoCarrito.innerHTML = `<h6 class="d-flex justify-content-center mt-3">Carrito vacío</h6>`;
 }
