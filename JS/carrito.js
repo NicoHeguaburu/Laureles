@@ -33,6 +33,9 @@ function dibujarCarrito() {
 }
 
 function vaciarCarrito() {
+    arrayCarrito.forEach(item => {
+        item.cantidad = 0;
+    });
     arrayCarrito = [];
     cuerpoCarrito.innerHTML = `<h6 class="d-flex justify-content-center mt-3">Carrito vacío</h6>`;
 }
