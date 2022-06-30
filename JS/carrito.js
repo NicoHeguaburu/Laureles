@@ -23,8 +23,11 @@ function dibujarCarrito() {
             `<ul class="d-flex flex-row" id="listaCarritoItem"><li>${item.nombre}</li><li>${item.precio}  </li><li>${item.cantidad}</li></ul>`
         cuerpoCarrito.append(divCarritoItem);
     });
-
+    let precioTotal = 0;
+    arrayCarrito.forEach(item => {
+        precioTotal = item.precio + precioTotal;
+    });
     const divTotal = document.createElement('div');
-    divTotal.innerHTML = `<h6>TOTAL:</h6>`
+    divTotal.innerHTML = `<h6 class="d-flex justify-content-center">TOTAL: ${precioTotal}</h6>`
     cuerpoCarrito.append(divTotal);
 }
