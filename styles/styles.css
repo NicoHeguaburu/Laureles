@@ -12,7 +12,7 @@
 #tituloNav {
   color: white;
   text-decoration: none;
-  font-family: "Dancing Script", cursive;
+  font-family: 'Dancing Script', cursive;
   font-size: 30px;
   font-weight: 500;
 }
@@ -20,7 +20,7 @@
 .subtituloNav {
   font-size: 20px;
   color: #70776d;
-  font-family: "Dancing Script", cursive;
+  font-family: 'Dancing Script', cursive;
   font-weight: bold;
 }
 
@@ -48,14 +48,13 @@
 
 .tituloItem {
   font-size: 25px;
-  font-family: "Dancing Script", cursive;
+  font-family: 'Dancing Script', cursive;
   text-align: center;
   color: #464b44;
 }
 
 .link {
-  -webkit-text-decoration-color: #464b44;
-          text-decoration-color: #464b44;
+  text-decoration-color: #464b44;
 }
 
 .menu {
@@ -113,7 +112,7 @@ footer {
 .footerTexto {
   color: white;
   font-size: 15px;
-  font-family: "Dosis", sans-serif;
+  font-family: 'Dosis', sans-serif;
 }
 
 .pequeño {
@@ -144,8 +143,7 @@ footer {
 
 .linkFooter {
   color: #464b44;
-  -webkit-text-decoration-color: #464b44;
-          text-decoration-color: #464b44;
+  text-decoration-color: #464b44;
   font-style: italic;
 }
 
@@ -178,7 +176,7 @@ footer {
 .tituloProductos {
   font-size: 24px;
   color: #464b44;
-  font-family: "Dosis", sans-serif;
+  font-family: 'Dosis', sans-serif;
   text-align: center;
   margin-top: 10px;
 }
@@ -186,14 +184,14 @@ footer {
 .precioProductos {
   font-size: 20px;
   color: #70776d;
-  font-family: "Dancing Script", cursive;
+  font-family: 'Dancing Script', cursive;
   font-weight: 900;
 }
 
 .descripcionProductos {
   font-size: 14px;
   color: #464b44;
-  font-family: "Dosis", sans-serif;
+  font-family: 'Dosis', sans-serif;
   text-align: justify;
 }
 
@@ -221,16 +219,32 @@ footer {
 }
 
 #listaCarritoItem {
-  background-color: rgb(208, 224, 195);
+  background-color: #d0e0c3;
   border-bottom: 0.5px solid #464b44;
   height: 30px;
   margin: 0px;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
 }
 
 #listaCarritoItem > li {
   list-style-type: none;
-  font-family: "Dosis", sans-serif;
+  font-family: 'Dancing Script', cursive;
+  font-weight: bolder;
   font-size: 14px;
-}/*# sourceMappingURL=styles.css.map */
+  width: 100%;
+}
+
+#btnVaciarCarro {
+  display: block;
+  width: 100%;
+  color: #630000;
+  background-color: #fe4343;
+  border: 0px;
+}
+
+#btnVaciarCarro:hover {
+  background-color: red;
+  transition: all 0.5s;
+}

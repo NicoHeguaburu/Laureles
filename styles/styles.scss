@@ -233,10 +233,26 @@ footer {
     margin: 0px;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
 }
 
 #listaCarritoItem>li {
     list-style-type: none;
-    font-family: 'Dosis', sans-serif;
+    font-family: 'Dancing Script', cursive;
+    font-weight: bolder;
     font-size: 14px;
+    width: 100%;
+}
+
+#btnVaciarCarro {
+    display: block;
+    width: 100%;
+    color: rgb(99, 0, 0);
+    background-color: rgb(254, 67, 67);
+    border: 0px;
+}
+
+#btnVaciarCarro:hover {
+    background-color: red;
+    transition: all 0.5s;
 }
