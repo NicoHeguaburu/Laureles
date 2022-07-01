@@ -1,5 +1,10 @@
 let arrayCarrito = [];
 
+if (localStorage.getItem('arrayCarritoJSON')) {
+    arrayCarritoJson = JSON.parse(localStorage.getItem('arrayCarritoJSON'));
+    arrayCarrito = arrayCarritoJson;
+}
+
 
 const botonCarrito = document.querySelector('#botonCarrito');
 const contenedorCarrito = document.querySelector('#contenedorCarrito');
@@ -14,6 +19,10 @@ contenedorCarrito.addEventListener("mouseleave", () => {
 });
 
 cuerpoCarrito.innerHTML = `<h6 class="d-flex justify-content-center mt-3">Carrito vacío</h6>`;
+
+if (arrayCarritoJson) {
+    dibujarCarrito();
+}
 
 function dibujarCarrito() {
     cuerpoCarrito.innerHTML = "";
@@ -30,6 +39,7 @@ function dibujarCarrito() {
     const divTotal = document.createElement('div');
     divTotal.innerHTML = `<h6 class="d-flex justify-content-center mt-1">TOTAL: ${precioTotal}</h6><button id="btnVaciarCarro" onclick="vaciarCarrito()">vaciar carro</button>`
     cuerpoCarrito.append(divTotal);
+    storage();
 }
 
 function vaciarCarrito() {
@@ -38,4 +48,11 @@ function vaciarCarrito() {
     });
     arrayCarrito = [];
     cuerpoCarrito.innerHTML = `<h6 class="d-flex justify-content-center mt-3">Carrito vacío</h6>`;
+    localStorage.removeItem('arrayCarritoJSON');
+}
+
+
+function storage() {
+    const arrayCarritoJson = JSON.stringify(arrayCarrito);
+    localStorage.setItem('arrayCarritoJSON', arrayCarritoJson);
 }
