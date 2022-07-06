@@ -34,4 +34,13 @@ const agregarAlCarritoCentros = (id) => {
         arrayCarrito[indiceRepetido] = productoRepetido;
     }
     dibujarCarrito();
+    Toastify({
+        text: "Agregado correctamente",
+        duration: 2000,
+        gravity: 'bottom',
+        position: 'right',
+        style: {
+            background: '#7F8D7A'
+        }
+    }).showToast();
 }
