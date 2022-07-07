@@ -1,12 +1,12 @@
 const cartaCandelabros = document.querySelector('#divCandelabros');
 
 const stockCandelabros = [
-    { id: 1, tipo: 'candelabros', nombre: 'candelabroA', precio: 1000, cantidad: 0, },
-    { id: 2, tipo: 'candelabros', nombre: 'candelabroB', precio: 2000, cantidad: 0, },
-    { id: 3, tipo: 'candelabros', nombre: 'candelabroC', precio: 1200, cantidad: 0, },
-    { id: 4, tipo: 'candelabros', nombre: 'candelabroD', precio: 1100, cantidad: 0, },
-    { id: 5, tipo: 'candelabros', nombre: 'candelabroE', precio: 2400, cantidad: 0, },
-    { id: 6, tipo: 'candelabros', nombre: 'candelabroF', precio: 2100, cantidad: 0, }
+    { id: 1, tipo: 'candelabros', nombre: 'candelabroA', precio: 1000, cantidad: 0, precioXcantidad: 0, },
+    { id: 2, tipo: 'candelabros', nombre: 'candelabroB', precio: 2000, cantidad: 0, precioXcantidad: 0, },
+    { id: 3, tipo: 'candelabros', nombre: 'candelabroC', precio: 1200, cantidad: 0, precioXcantidad: 0, },
+    { id: 4, tipo: 'candelabros', nombre: 'candelabroD', precio: 1100, cantidad: 0, precioXcantidad: 0, },
+    { id: 5, tipo: 'candelabros', nombre: 'candelabroE', precio: 2400, cantidad: 0, precioXcantidad: 0, },
+    { id: 6, tipo: 'candelabros', nombre: 'candelabroF', precio: 2100, cantidad: 0, precioXcantidad: 0, }
 ]
 
 stockCandelabros.forEach((item) => {
@@ -24,8 +24,7 @@ stockCandelabros.forEach((item) => {
 const agregarAlCarritoCandelabros = (id) => {
     const item = stockCandelabros.find((producto) => producto.id === id)
     item.cantidad = item.cantidad + 1
-    item.precio = item.precio * item.cantidad;
-
+    item.precioXcantidad = item.precio * item.cantidad;
     if (item.cantidad === 1) {
         arrayCarrito.push(item);
     } else {

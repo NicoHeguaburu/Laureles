@@ -29,12 +29,12 @@ function dibujarCarrito() {
     arrayCarrito.forEach(item => {
         const divCarritoItem = document.createElement('div');
         divCarritoItem.innerHTML =
-            `<ul class="d-flex" id="listaCarritoItem"><li>${item.nombre}</li><li>${item.precio}  </li><li>${item.cantidad}</li></ul>`
+            `<div class="d-flex" id="listaCarritoItem"><div>${item.cantidad} x ${item.nombre} - $${item.precio}</div></div>`
         cuerpoCarrito.append(divCarritoItem);
     });
     let precioTotal = 0;
     arrayCarrito.forEach(item => {
-        precioTotal = item.precio + precioTotal;
+        precioTotal = item.precioXcantidad + precioTotal;
     });
     const divTotal = document.createElement('div');
     divTotal.innerHTML = `<h6 class="d-flex justify-content-center mt-1">TOTAL: ${precioTotal}</h6><button id="btnVaciarCarro" onclick="vaciarCarrito()">vaciar carro</button>`
@@ -49,6 +49,15 @@ function vaciarCarrito() {
     arrayCarrito = [];
     cuerpoCarrito.innerHTML = `<h6 class="d-flex justify-content-center mt-3">Carrito vacío</h6>`;
     localStorage.removeItem('arrayCarritoJSON');
+    Toastify({
+        text: "Carrito vaciado",
+        duration: 2000,
+        gravity: 'bottom',
+        position: 'right',
+        style: {
+            background: '#ff4d4d'
+        }
+    }).showToast();
 }
 
 
