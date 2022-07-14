@@ -26,7 +26,7 @@ $ancho: 300px;
 }
 
 .subtituloNav {
-    font-size: 20px;
+    font-size: 30px;
     color: $oscuro;
     font-family: 'Dancing Script', cursive;
     font-weight: bold;
@@ -255,4 +255,52 @@ footer {
 #btnVaciarCarro:hover {
     background-color: red;
     transition: all 0.5s;
+}
+
+#btnComprarCarro {
+    display: block;
+    width: 100%;
+    color: rgb(99, 0, 0);
+    background-color: green;
+    border: 0px;
+}
+
+#btnComprarCarro:hover {
+    background-color: darkgreen;
+    transition: all 0.5s;
+}
+
+// contacto
+#form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.field {
+    margin-bottom: 10px;
+}
+
+.field label {
+    width: 100%;
+    font-size: 16px;
+    color: #777;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.field input {
+    display: block;
+    min-width: 250px;
+    line-height: 1.5;
+    font-size: 14px;
+}
+
+input[type="submit"] {
+    display: block;
+    padding: 6px 30px;
+    font-size: 14px;
+    background-color: #70776d;
+    color: #fff;
+    border: none;
 }

@@ -37,7 +37,7 @@ function dibujarCarrito() {
         precioTotal = item.precioXcantidad + precioTotal;
     });
     const divTotal = document.createElement('div');
-    divTotal.innerHTML = `<h6 class="d-flex justify-content-center mt-1">TOTAL: ${precioTotal}</h6><button id="btnVaciarCarro" onclick="vaciarCarrito()">vaciar carro</button>`
+    divTotal.innerHTML = `<h6 class="d-flex justify-content-center mt-1">TOTAL: ${precioTotal}</h6><button id="btnVaciarCarro" onclick="vaciarCarrito()">vaciar carro</button><button id="btnComprarCarro" onclick="comprarCarrito()">comprar carro</button>`
     cuerpoCarrito.append(divTotal);
     storage();
 }

@@ -1,11 +1,22 @@
 {
   "name": "laureles",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NicoHeguaburu/Laureles.git"
+  },
+  "bugs": {
+    "url": "https://github.com/NicoHeguaburu/Laureles/issues"
+  },
+  "homepage": "https://github.com/NicoHeguaburu/Laureles#readme",
+  "description": "",
+  "dependencies": {
+    "mercadopago": "^1.5.14"
+  }
 }
