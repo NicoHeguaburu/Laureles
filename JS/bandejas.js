@@ -1,25 +1,37 @@
 const cartaBandejas = document.querySelector('#divBandejas');
 
-const stockBandejas = [
-    { id: 1, tipo: 'bandejas', nombre: 'Mabel', descripcion: 'Madera de pino en aguado blanco. El fondo floriado y el mensaje personalizado.', imagen: 'multimedia\bandejas\imagenesFarmstyle.png', precio: 1800, cantidad: 0, precioXcantidad: 0, },
-    { id: 2, tipo: 'bandejas', nombre: 'Verónica', descripcion: 'Madera de pino en aguado blanco. El fondo floriado y el mensaje personalizado.', imagen: 'multimedia\bandejas\imagenesFarmstyle.png', precio: 800, cantidad: 0, precioXcantidad: 0, },
-    { id: 3, tipo: 'bandejas', nombre: 'Mariana', descripcion: 'Madera de pino en aguado blanco. El fondo floriado y el mensaje personalizado.', imagen: 'multimedia\bandejas\imagenesFarmstyle.png', precio: 1200, cantidad: 0, precioXcantidad: 0, },
-    { id: 4, tipo: 'bandejas', nombre: 'Lucia', descripcion: 'Madera de pino en aguado blanco. El fondo floriado y el mensaje personalizado.', imagen: 'multimedia\bandejas\imagenesFarmstyle.png', precio: 1100, cantidad: 0, precioXcantidad: 0, },
-    { id: 5, tipo: 'bandejas', nombre: 'Maria', descripcion: 'Madera de pino en aguado blanco. El fondo floriado y el mensaje personalizado.', imagen: 'multimedia\bandejas\imagenesFarmstyle.png', precio: 2400, cantidad: 0, precioXcantidad: 0, },
-    { id: 6, tipo: 'bandejas', nombre: 'Federico', descripcion: 'Madera de pino en aguado blanco. El fondo floriado y el mensaje personalizado.', imagen: 'multimedia\bandejas\imagenesFarmstyle.png', precio: 2100, cantidad: 0, precioXcantidad: 0, }
-]
+// const stockBandejas = [
+//     { id: 1, tipo: 'bandejas', nombre: 'Mabel', descripcion: 'Madera de pino en aguado blanco. El fondo floriado y el mensaje personalizado.', imagen: '../multimedia/bandejas/imagenesFarmstyle.png', precio: 1800, cantidad: 0, precioXcantidad: 0, },
+//     { id: 2, tipo: 'bandejas', nombre: 'Verónica', descripcion: 'Madera de pino en aguado blanco. El fondo floriado y el mensaje personalizado.', imagen: '../multimedia/bandejas/imagenesFarmstyle.png', precio: 800, cantidad: 0, precioXcantidad: 0, },
+//     { id: 3, tipo: 'bandejas', nombre: 'Mariana', descripcion: 'Madera de pino en aguado blanco. El fondo floriado y el mensaje personalizado.', imagen: '../multimedia/bandejas/imagenesFarmstyle.png', precio: 1200, cantidad: 0, precioXcantidad: 0, },
+//     { id: 4, tipo: 'bandejas', nombre: 'Lucia', descripcion: 'Madera de pino en aguado blanco. El fondo floriado y el mensaje personalizado.', imagen: '../multimedia/bandejas/imagenesFarmstyle.png', precio: 1100, cantidad: 0, precioXcantidad: 0, },
+//     { id: 5, tipo: 'bandejas', nombre: 'Maria', descripcion: 'Madera de pino en aguado blanco. El fondo floriado y el mensaje personalizado.', imagen: '../multimedia/bandejas/imagenesFarmstyle.png', precio: 2400, cantidad: 0, precioXcantidad: 0, },
+//     { id: 6, tipo: 'bandejas', nombre: 'Federico', descripcion: 'Madera de pino en aguado blanco. El fondo floriado y el mensaje personalizado.', imagen: '../multimedia/bandejas/imagenesFarmstyle.png', precio: 2100, cantidad: 0, precioXcantidad: 0, }
+// ]
 
-stockBandejas.forEach((item) => {
-    const divBandejas = document.createElement('div');
-    divBandejas.classList.add('cartaProductos')
-    divBandejas.innerHTML = `<img scr="${item.imagen}"/>
-                <h3 class="tituloProductos">${item.nombre}</h3>
-                <h3 class="precioProductos">${item.precio}$</h3>
-                <p class="descripcionProductos">${item.descripcion}</p>
-                <button type="button" onclick="agregarAlCarritoBandejas(${item.id})" class="btn btn-success w-100 agragarCarrito" data-bs-toggle="button">Agregar <i class="bi bi-cart-plus-fill"></i></button>`
+fetch('https://mocki.io/v1/e19e4971-9860-4f48-8a39-e38fe4eddaa1')
+    .then(response => response.json())
+    .then(data => crearStock(data))
 
-    cartaBandejas.append(divBandejas);
-});
+const crearStock = (Data) => {
+    stockBandejas = Data
+
+
+    stockBandejas.forEach((item) => {
+        const divBandejas = document.createElement('div');
+        divBandejas.classList.add('cartaProductos')
+        divBandejas.innerHTML = `<img src="${item.imagen}" class="imgProductos">
+                    <h3 class="tituloProductos">${item.nombre}</h3>
+                    <h3 class="precioProductos">${item.precio}$</h3>
+                    <p class="descripcionProductos">${item.descripcion}</p>
+                    <button type="button" onclick="agregarAlCarritoBandejas(${item.id})" class="btn btn-success w-100 agragarCarrito" data-bs-toggle="button">Agregar <i class="bi bi-cart-plus-fill"></i></button>`
+
+        cartaBandejas.append(divBandejas);
+    });
+}
+
+
+
 
 const agregarAlCarritoBandejas = (id) => {
     const item = stockBandejas.find((producto) => producto.id === id);
