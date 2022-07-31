@@ -65,3 +65,8 @@ function storage() {
     const arrayCarritoJson = JSON.stringify(arrayCarrito);
     localStorage.setItem('arrayCarritoJSON', arrayCarritoJson);
 }
+
+function mostrarMas() {
+
+
+}
